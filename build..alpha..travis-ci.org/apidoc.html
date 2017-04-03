@@ -1,0 +1,1739 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/martynsmith/node-irc#readme"
+
+    >irc (v0.5.2)</a>
+</h1>
+<h4>An IRC client library for node</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.irc">module irc</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client">
+            function <span class="apidocSignatureSpan">irc.</span>Client
+            <span class="apidocSignatureSpan">(server, nick, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.cycling_ping_timer">
+            function <span class="apidocSignatureSpan">irc.</span>cycling_ping_timer
+            <span class="apidocSignatureSpan">(client)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">irc.</span>Client.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">irc.</span>colors</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.irc.Client">module irc.Client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.Client">
+            function <span class="apidocSignatureSpan">irc.</span>Client
+            <span class="apidocSignatureSpan">(server, nick, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.super_">
+            function <span class="apidocSignatureSpan">irc.Client.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.irc.Client.prototype">module irc.Client.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype._addWhoisData">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_addWhoisData
+            <span class="apidocSignatureSpan">(nick, key, value, onlyIfExists)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype._clearWhoisData">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_clearWhoisData
+            <span class="apidocSignatureSpan">(nick)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype._connectionHandler">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_connectionHandler
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype._handleCTCP">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_handleCTCP
+            <span class="apidocSignatureSpan">(from, to, text, type, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype._speak">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_speak
+            <span class="apidocSignatureSpan">(kind, target, text)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype._splitLongLines">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_splitLongLines
+            <span class="apidocSignatureSpan">(words, maxLength, destination)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype._updateMaxLineLength">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_updateMaxLineLength
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.action">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>action
+            <span class="apidocSignatureSpan">(channel, text)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.activateFloodProtection">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>activateFloodProtection
+            <span class="apidocSignatureSpan">(interval)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.chanData">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>chanData
+            <span class="apidocSignatureSpan">(name, create)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.connect">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>connect
+            <span class="apidocSignatureSpan">(retryCount, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.connectionTimedOut">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>connectionTimedOut
+            <span class="apidocSignatureSpan">(conn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.connectionWantsPing">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>connectionWantsPing
+            <span class="apidocSignatureSpan">(conn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.convertEncoding">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>convertEncoding
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.ctcp">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>ctcp
+            <span class="apidocSignatureSpan">(to, type, text)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.disconnect">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>disconnect
+            <span class="apidocSignatureSpan">(message, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.end">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>end
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.join">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>join
+            <span class="apidocSignatureSpan">(channel, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.list">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>list
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.notice">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>notice
+            <span class="apidocSignatureSpan">(target, text)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.part">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>part
+            <span class="apidocSignatureSpan">(channel, message, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.say">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>say
+            <span class="apidocSignatureSpan">(target, text)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.send">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>send
+            <span class="apidocSignatureSpan">(command)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.Client.prototype.whois">
+            function <span class="apidocSignatureSpan">irc.Client.prototype.</span>whois
+            <span class="apidocSignatureSpan">(nick, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">irc.Client.prototype.</span>_whoisData</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">irc.Client.prototype.</span>chans</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">irc.Client.prototype.</span>conn</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">irc.Client.prototype.</span>modeForPrefix</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">irc.Client.prototype.</span>prefixForMode</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.irc.colors">module irc.colors</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.colors.wrap">
+            function <span class="apidocSignatureSpan">irc.colors.</span>wrap
+            <span class="apidocSignatureSpan">(color, text, resetColor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">irc.colors.</span>codes</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.irc.cycling_ping_timer">module irc.cycling_ping_timer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.cycling_ping_timer.cycling_ping_timer">
+            function <span class="apidocSignatureSpan">irc.</span>cycling_ping_timer
+            <span class="apidocSignatureSpan">(client)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.irc.cycling_ping_timer.super_">
+            function <span class="apidocSignatureSpan">irc.cycling_ping_timer.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.irc" id="apidoc.module.irc">module irc</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client" id="apidoc.element.irc.Client">
+        function <span class="apidocSignatureSpan">irc.</span>Client
+        <span class="apidocSignatureSpan">(server, nick, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(server, nick, opt) {
+    var self = this;
+    self.opt = {
+        server: server,
+        nick: nick,
+        password: null,
+        userName: &#x27;nodebot&#x27;,
+        realName: &#x27;nodeJS IRC client&#x27;,
+        port: 6667,
+        localAddress: null,
+        debug: false,
+        showErrors: false,
+        autoRejoin: false,
+        autoConnect: true,
+        channels: [],
+        retryCount: null,
+        retryDelay: 2000,
+        secure: false,
+        selfSigned: false,
+        certExpired: false,
+        floodProtection: false,
+        floodProtectionDelay: 1000,
+        sasl: false,
+        stripColors: false,
+        channelPrefixes: &#x27;&#x26;#&#x27;,
+        messageSplit: 512,
+        encoding: false,
+        webirc: {
+          pass: &#x27;&#x27;,
+          ip: &#x27;&#x27;,
+          host: &#x27;&#x27;
+        },
+        millisecondsOfSilenceBeforePingSent: 15 * 1000,
+        millisecondsBeforePingTimeout: 8 * 1000
+    };
+
+    // Features supported by the server
+    // (initial values are RFC 1459 defaults. Zeros signify
+    // no default or unlimited value)
+    self.supported = {
+        channel: {
+            idlength: [],
+            length: 200,
+            limit: [],
+            modes: { a: &#x27;&#x27;, b: &#x27;&#x27;, c: &#x27;&#x27;, d: &#x27;&#x27;},
+            types: self.opt.channelPrefixes
+        },
+        kicklength: 0,
+        maxlist: [],
+        maxtargets: [],
+        modes: 3,
+        nicklength: 9,
+        topiclength: 0,
+        usermodes: &#x27;&#x27;
+    };
+
+    if (typeof arguments[2] == &#x27;object&#x27;) {
+        var keys = Object.keys(self.opt);
+        for (var i = 0; i &#x3c; keys.length; i++) {
+            var k = keys[i];
+            if (arguments[2][k] !== undefined)
+                self.opt[k] = arguments[2][k];
+        }
+    }
+
+    if (self.opt.floodProtection) {
+        self.activateFloodProtection();
+    }
+
+    self.hostMask = &#x27;&#x27;;
+
+    // TODO - fail if nick or server missing
+    // TODO - fail if username has a space in it
+    if (self.opt.autoConnect === true) {
+        self.connect();
+    }
+
+    self.addListener(&#x27;raw&#x27;, function(message) {
+        var channels = [],
+            channel,
+            nick,
+            from,
+            text,
+            to;
+
+        switch (message.command) {
+            case &#x27;rpl_welcome&#x27;:
+                // Set nick to whatever the server decided it really is
+                // (normally this is because you chose something too long and
+                // the server has shortened it
+                self.nick = message.args[0];
+                // Note our hostmask to use it in splitting long messages.
+                // We don&#x27;t send our hostmask when issuing PRIVMSGs or NOTICEs,
+                // of course, but rather the servers on the other side will
+                // include it in messages and will truncate what we send if
+                // the string is too long. Therefore, we need to be considerate
+                // neighbors and truncate our messages accordingly.
+                var welcomeStringWords = message.args[1].split(/\s+/);
+                self.hostMask = welcomeStringWords[welcomeStringWords.length - 1];
+                self._updateMaxLineLength();
+                self.emit(&#x27;registered&#x27;, message);
+                self.whois(self.nick, function(args) {
+                    self.nick = args.nick;
+                    self.hostMask = args.user + &#x27;@&#x27; + args.host;
+                    self._updateMaxLineLength();
+                });
+                break;
+            case &#x27;rpl_myinfo&#x27;:
+                self.supported.usermodes = message.args[3];
+                break;
+            case &#x27;rpl_isupport&#x27;:
+                message.args.forEach(function(arg) {
+                    var match;
+                    match = arg.match(/([A-Z]+)=(.*)/);
+                    if (match) {
+                        var param = match[1];
+                        var value = match[2];
+                        switch (param) {
+                            case &#x27;CHANLIMIT&#x27;:
+                                value.split(&#x27;,&#x27;).forEach(function(val) {
+                                    val = val.split(&#x27;:&#x27;);
+                                    self.supported ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Basic Usage
+
+This library provides basic IRC client functionality. In the simplest case you
+can connect to an IRC server like so:
+
+```js
+var irc = require(&#x27;irc&#x27;);
+var client = new irc.<span class="apidocCodeKeywordSpan">Client</span>(&#x27;irc.yourserver.com&#x27;, &#x27;myNick&#x27;, {
+    channels: [&#x27;#channel&#x27;],
+});
+```
+
+Of course it&#x27;s not much use once it&#x27;s connected if that&#x27;s all you have!
+
+The client emits a large number of events that correlate to things you&#x27;d
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.cycling_ping_timer" id="apidoc.element.irc.cycling_ping_timer">
+        function <span class="apidocSignatureSpan">irc.</span>cycling_ping_timer
+        <span class="apidocSignatureSpan">(client)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CyclingPingTimer(client) {
+    var timerNumber = ctr++;
+    var started = false;
+    var self = this;
+
+    // Only one of these two should be non-null at any given time.
+    var loopingTimeout = null;
+    var pingWaitTimeout = null;
+
+    // conditionally log debug messages
+    function debug(msg) {
+        if (client.opt.debug) {
+            console.error(&#x27;CyclingPingTimer &#x27; + timerNumber + &#x27;: &#x27; + msg);
+        }
+    }
+
+    // set up EventEmitter functionality
+    EventEmitter.call(self);
+
+    self.on(&#x27;wantPing&#x27;, function() {
+        debug(&#x27;server silent for too long, let\&#x27;s send a PING&#x27;);
+        pingWaitTimeout = setTimeout(function() {
+            self.stop();
+            debug(&#x27;ping timeout!&#x27;);
+            self.emit(&#x27;pingTimeout&#x27;);
+        }, client.opt.millisecondsBeforePingTimeout);
+    });
+
+    self.notifyOfActivity = function() {
+        if (started) {
+            self.stop();
+            self.start();
+        }
+    };
+
+    self.stop = function() {
+        if (!started) {
+            return;
+        }
+        started = false;
+
+        clearTimeout(loopingTimeout);
+        clearTimeout(pingWaitTimeout);
+
+        loopingTimeout = null;
+        pingWaitTimeout = null;
+    };
+
+    self.start = function() {
+        if (started) {
+            debug(&#x27;can\&#x27;t start, not stopped!&#x27;);
+            return;
+        }
+        started = true;
+
+        loopingTimeout = setTimeout(function() {
+            loopingTimeout = null;
+            self.emit(&#x27;wantPing&#x27;);
+        }, client.opt.millisecondsOfSilenceBeforePingSent);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.irc.Client" id="apidoc.module.irc.Client">module irc.Client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.Client" id="apidoc.element.irc.Client.Client">
+        function <span class="apidocSignatureSpan">irc.</span>Client
+        <span class="apidocSignatureSpan">(server, nick, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(server, nick, opt) {
+    var self = this;
+    self.opt = {
+        server: server,
+        nick: nick,
+        password: null,
+        userName: &#x27;nodebot&#x27;,
+        realName: &#x27;nodeJS IRC client&#x27;,
+        port: 6667,
+        localAddress: null,
+        debug: false,
+        showErrors: false,
+        autoRejoin: false,
+        autoConnect: true,
+        channels: [],
+        retryCount: null,
+        retryDelay: 2000,
+        secure: false,
+        selfSigned: false,
+        certExpired: false,
+        floodProtection: false,
+        floodProtectionDelay: 1000,
+        sasl: false,
+        stripColors: false,
+        channelPrefixes: &#x27;&#x26;#&#x27;,
+        messageSplit: 512,
+        encoding: false,
+        webirc: {
+          pass: &#x27;&#x27;,
+          ip: &#x27;&#x27;,
+          host: &#x27;&#x27;
+        },
+        millisecondsOfSilenceBeforePingSent: 15 * 1000,
+        millisecondsBeforePingTimeout: 8 * 1000
+    };
+
+    // Features supported by the server
+    // (initial values are RFC 1459 defaults. Zeros signify
+    // no default or unlimited value)
+    self.supported = {
+        channel: {
+            idlength: [],
+            length: 200,
+            limit: [],
+            modes: { a: &#x27;&#x27;, b: &#x27;&#x27;, c: &#x27;&#x27;, d: &#x27;&#x27;},
+            types: self.opt.channelPrefixes
+        },
+        kicklength: 0,
+        maxlist: [],
+        maxtargets: [],
+        modes: 3,
+        nicklength: 9,
+        topiclength: 0,
+        usermodes: &#x27;&#x27;
+    };
+
+    if (typeof arguments[2] == &#x27;object&#x27;) {
+        var keys = Object.keys(self.opt);
+        for (var i = 0; i &#x3c; keys.length; i++) {
+            var k = keys[i];
+            if (arguments[2][k] !== undefined)
+                self.opt[k] = arguments[2][k];
+        }
+    }
+
+    if (self.opt.floodProtection) {
+        self.activateFloodProtection();
+    }
+
+    self.hostMask = &#x27;&#x27;;
+
+    // TODO - fail if nick or server missing
+    // TODO - fail if username has a space in it
+    if (self.opt.autoConnect === true) {
+        self.connect();
+    }
+
+    self.addListener(&#x27;raw&#x27;, function(message) {
+        var channels = [],
+            channel,
+            nick,
+            from,
+            text,
+            to;
+
+        switch (message.command) {
+            case &#x27;rpl_welcome&#x27;:
+                // Set nick to whatever the server decided it really is
+                // (normally this is because you chose something too long and
+                // the server has shortened it
+                self.nick = message.args[0];
+                // Note our hostmask to use it in splitting long messages.
+                // We don&#x27;t send our hostmask when issuing PRIVMSGs or NOTICEs,
+                // of course, but rather the servers on the other side will
+                // include it in messages and will truncate what we send if
+                // the string is too long. Therefore, we need to be considerate
+                // neighbors and truncate our messages accordingly.
+                var welcomeStringWords = message.args[1].split(/\s+/);
+                self.hostMask = welcomeStringWords[welcomeStringWords.length - 1];
+                self._updateMaxLineLength();
+                self.emit(&#x27;registered&#x27;, message);
+                self.whois(self.nick, function(args) {
+                    self.nick = args.nick;
+                    self.hostMask = args.user + &#x27;@&#x27; + args.host;
+                    self._updateMaxLineLength();
+                });
+                break;
+            case &#x27;rpl_myinfo&#x27;:
+                self.supported.usermodes = message.args[3];
+                break;
+            case &#x27;rpl_isupport&#x27;:
+                message.args.forEach(function(arg) {
+                    var match;
+                    match = arg.match(/([A-Z]+)=(.*)/);
+                    if (match) {
+                        var param = match[1];
+                        var value = match[2];
+                        switch (param) {
+                            case &#x27;CHANLIMIT&#x27;:
+                                value.split(&#x27;,&#x27;).forEach(function(val) {
+                                    val = val.split(&#x27;:&#x27;);
+                                    self.supported ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Basic Usage
+
+This library provides basic IRC client functionality. In the simplest case you
+can connect to an IRC server like so:
+
+```js
+var irc = require(&#x27;irc&#x27;);
+var client = new irc.<span class="apidocCodeKeywordSpan">Client</span>(&#x27;irc.yourserver.com&#x27;, &#x27;myNick&#x27;, {
+    channels: [&#x27;#channel&#x27;],
+});
+```
+
+Of course it&#x27;s not much use once it&#x27;s connected if that&#x27;s all you have!
+
+The client emits a large number of events that correlate to things you&#x27;d
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.super_" id="apidoc.element.irc.Client.super_">
+        function <span class="apidocSignatureSpan">irc.Client.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.irc.Client.prototype" id="apidoc.module.irc.Client.prototype">module irc.Client.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype._addWhoisData" id="apidoc.element.irc.Client.prototype._addWhoisData">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_addWhoisData
+        <span class="apidocSignatureSpan">(nick, key, value, onlyIfExists)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addWhoisData = function (nick, key, value, onlyIfExists) {
+    if (onlyIfExists &#x26;&#x26; !this._whoisData[nick]) return;
+    this._whoisData[nick] = this._whoisData[nick] || {nick: nick};
+    this._whoisData[nick][key] = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype._clearWhoisData" id="apidoc.element.irc.Client.prototype._clearWhoisData">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_clearWhoisData
+        <span class="apidocSignatureSpan">(nick)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_clearWhoisData = function (nick) {
+    // Ensure that at least the nick exists before trying to return
+    this._addWhoisData(nick, &#x27;nick&#x27;, nick);
+    var data = this._whoisData[nick];
+    delete this._whoisData[nick];
+    return data;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype._connectionHandler" id="apidoc.element.irc.Client.prototype._connectionHandler">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_connectionHandler
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_connectionHandler = function () {
+    if (this.opt.webirc.ip &#x26;&#x26; this.opt.webirc.pass &#x26;&#x26; this.opt.webirc.host) {
+        this.send(&#x27;WEBIRC&#x27;, this.opt.webirc.pass, this.opt.userName, this.opt.webirc.host, this.opt.webirc.ip);
+    }
+    if (this.opt.sasl) {
+        // see http://ircv3.atheme.org/extensions/sasl-3.1
+        this.send(&#x27;CAP REQ&#x27;, &#x27;sasl&#x27;);
+    } else if (this.opt.password) {
+        this.send(&#x27;PASS&#x27;, this.opt.password);
+    }
+    if (this.opt.debug)
+        util.log(&#x27;Sending irc NICK/USER&#x27;);
+    this.send(&#x27;NICK&#x27;, this.opt.nick);
+    this.nick = this.opt.nick;
+    this._updateMaxLineLength();
+    this.send(&#x27;USER&#x27;, this.opt.userName, 8, &#x27;*&#x27;, this.opt.realName);
+
+    this.conn.cyclingPingTimer.start();
+
+    this.emit(&#x27;connect&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype._handleCTCP" id="apidoc.element.irc.Client.prototype._handleCTCP">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_handleCTCP
+        <span class="apidocSignatureSpan">(from, to, text, type, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleCTCP = function (from, to, text, type, message) {
+    text = text.slice(1);
+    text = text.slice(0, text.indexOf(&#x27;\u0001&#x27;));
+    var parts = text.split(&#x27; &#x27;);
+    this.emit(&#x27;ctcp&#x27;, from, to, text, type, message);
+    this.emit(&#x27;ctcp-&#x27; + type, from, to, text, message);
+    if (type === &#x27;privmsg&#x27; &#x26;&#x26; text === &#x27;VERSION&#x27;)
+        this.emit(&#x27;ctcp-version&#x27;, from, to, message);
+    if (parts[0] === &#x27;ACTION&#x27; &#x26;&#x26; parts.length &#x3e; 1)
+        this.emit(&#x27;action&#x27;, from, to, parts.slice(1).join(&#x27; &#x27;), message);
+    if (parts[0] === &#x27;PING&#x27; &#x26;&#x26; type === &#x27;privmsg&#x27; &#x26;&#x26; parts.length &#x3e; 1)
+        this.ctcp(from, &#x27;notice&#x27;, text);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype._speak" id="apidoc.element.irc.Client.prototype._speak">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_speak
+        <span class="apidocSignatureSpan">(kind, target, text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_speak = function (kind, target, text) {
+    var self = this;
+    var maxLength = Math.min(this.maxLineLength - target.length, this.opt.messageSplit);
+    if (typeof text !== &#x27;undefined&#x27;) {
+        text.toString().split(/\r?\n/).filter(function(line) {
+            return line.length &#x3e; 0;
+        }).forEach(function(line) {
+            var linesToSend = self._splitLongLines(line, maxLength, []);
+            linesToSend.forEach(function(toSend) {
+                self.send(kind, target, toSend);
+                if (kind == &#x27;PRIVMSG&#x27;) {
+                    self.emit(&#x27;selfMessage&#x27;, target, toSend);
+                }
+            });
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype._splitLongLines" id="apidoc.element.irc.Client.prototype._splitLongLines">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_splitLongLines
+        <span class="apidocSignatureSpan">(words, maxLength, destination)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_splitLongLines = function (words, maxLength, destination) {
+    maxLength = maxLength || 450; // If maxLength hasn&#x27;t been initialized yet, prefer an arbitrarily low line length over crashing
+.
+    if (words.length == 0) {
+        return destination;
+    }
+    if (words.length &#x3c;= maxLength) {
+        destination.push(words);
+        return destination;
+    }
+    var c = words[maxLength];
+    var cutPos;
+    var wsLength = 1;
+    if (c.match(/\s/)) {
+        cutPos = maxLength;
+    } else {
+        var offset = 1;
+        while ((maxLength - offset) &#x3e; 0) {
+            var c = words[maxLength - offset];
+            if (c.match(/\s/)) {
+                cutPos = maxLength - offset;
+                break;
+            }
+            offset++;
+        }
+        if (maxLength - offset &#x3c;= 0) {
+            cutPos = maxLength;
+            wsLength = 0;
+        }
+    }
+    var part = words.substring(0, cutPos);
+    destination.push(part);
+    return this._splitLongLines(words.substring(cutPos + wsLength, words.length), maxLength, destination);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype._updateMaxLineLength" id="apidoc.element.irc.Client.prototype._updateMaxLineLength">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>_updateMaxLineLength
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_updateMaxLineLength = function () {
+    // 497 = 510 - (&#x22;:&#x22; + &#x22;!&#x22; + &#x22; PRIVMSG &#x22; + &#x22; :&#x22;).length;
+    // target is determined in _speak() and subtracted there
+    this.maxLineLength = 497 - this.nick.length - this.hostMask.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.action" id="apidoc.element.irc.Client.prototype.action">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>action
+        <span class="apidocSignatureSpan">(channel, text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">action = function (channel, text) {
+    var self = this;
+    if (typeof text !== &#x27;undefined&#x27;) {
+        text.toString().split(/\r?\n/).filter(function(line) {
+            return line.length &#x3e; 0;
+        }).forEach(function(line) {
+            self.say(channel, &#x27;\u0001ACTION &#x27; + line + &#x27;\u0001&#x27;);
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.activateFloodProtection" id="apidoc.element.irc.Client.prototype.activateFloodProtection">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>activateFloodProtection
+        <span class="apidocSignatureSpan">(interval)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">activateFloodProtection = function (interval) {
+
+    var cmdQueue = [],
+        safeInterval = interval || this.opt.floodProtectionDelay,
+        self = this,
+        origSend = this.send,
+        dequeue;
+
+    // Wrapper for the original function. Just put everything to on central
+    // queue.
+    this.send = function() {
+        cmdQueue.push(arguments);
+    };
+
+    this._sendImmediate = function() {
+        origSend.apply(self, arguments);
+    };
+
+    this._clearCmdQueue = function() {
+        cmdQueue = [];
+    };
+
+    dequeue = function() {
+        var args = cmdQueue.shift();
+        if (args) {
+            origSend.apply(self, args);
+        }
+    };
+
+    // Slowly unpack the queue without flooding.
+    setInterval(dequeue, safeInterval);
+    dequeue();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.chanData" id="apidoc.element.irc.Client.prototype.chanData">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>chanData
+        <span class="apidocSignatureSpan">(name, create)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">chanData = function (name, create) {
+    var key = name.toLowerCase();
+    if (create) {
+        this.chans[key] = this.chans[key] || {
+            key: key,
+            serverName: name,
+            users: {},
+            modeParams: {},
+            mode: &#x27;&#x27;
+        };
+    }
+
+    return this.chans[key];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.connect" id="apidoc.element.irc.Client.prototype.connect">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>connect
+        <span class="apidocSignatureSpan">(retryCount, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (retryCount, callback) {
+    if (typeof (retryCount) === &#x27;function&#x27;) {
+        callback = retryCount;
+        retryCount = undefined;
+    }
+    retryCount = retryCount || 0;
+    if (typeof (callback) === &#x27;function&#x27;) {
+        this.once(&#x27;registered&#x27;, callback);
+    }
+    var self = this;
+    self.chans = {};
+
+    // socket opts
+    var connectionOpts = {
+        host: self.opt.server,
+        port: self.opt.port
+    };
+
+    // local address to bind to
+    if (self.opt.localAddress)
+        connectionOpts.localAddress = self.opt.localAddress;
+
+    // try to connect to the server
+    if (self.opt.secure) {
+        connectionOpts.rejectUnauthorized = !self.opt.selfSigned;
+
+        if (typeof self.opt.secure == &#x27;object&#x27;) {
+            // copy &#x22;secure&#x22; opts to options passed to connect()
+            for (var f in self.opt.secure) {
+                connectionOpts[f] = self.opt.secure[f];
+            }
+        }
+
+        self.conn = tls.connect(connectionOpts, function() {
+            // callback called only after successful socket connection
+            self.conn.connected = true;
+            if (self.conn.authorized ||
+                (self.opt.selfSigned &#x26;&#x26;
+                    (self.conn.authorizationError   === &#x27;DEPTH_ZERO_SELF_SIGNED_CERT&#x27; ||
+                     self.conn.authorizationError === &#x27;UNABLE_TO_VERIFY_LEAF_SIGNATURE&#x27; ||
+                     self.conn.authorizationError === &#x27;SELF_SIGNED_CERT_IN_CHAIN&#x27;)) ||
+                (self.opt.certExpired &#x26;&#x26;
+                 self.conn.authorizationError === &#x27;CERT_HAS_EXPIRED&#x27;)) {
+                // authorization successful
+
+                if (!self.opt.encoding) {
+                    self.conn.setEncoding(&#x27;utf-8&#x27;);
+                }
+
+                if (self.opt.certExpired &#x26;&#x26;
+                    self.conn.authorizationError === &#x27;CERT_HAS_EXPIRED&#x27;) {
+                    util.log(&#x27;Connecting to server with expired certificate&#x27;);
+                }
+
+                self._connectionHandler();
+            } else {
+                // authorization failed
+                util.log(self.conn.authorizationError);
+            }
+        });
+    } else {
+        self.conn = net.createConnection(connectionOpts, self._connectionHandler.bind(self));
+    }
+    self.conn.requestedDisconnect = false;
+    self.conn.setTimeout(0);
+
+    // Each connection gets its own CyclingPingTimer. The connection forwards the timer&#x27;s &#x27;timeout&#x27; and &#x27;wantPing&#x27; events
+    // to the client object via calling the connectionTimedOut() and connectionWantsPing() functions.
+    //
+    // Since the client&#x27;s &#x22;current connection&#x22; value changes over time because of retry functionality,
+    // the client should ignore timeout/wantPing events that come from old connections.
+    self.conn.cyclingPingTimer = new CyclingPingTimer(self);
+    (function(conn) {
+        conn.cyclingPingTimer.on(&#x27;pingTimeout&#x27;, function() {
+            self.connectionTimedOut(conn);
+        });
+        conn.cyclingPingTimer.on(&#x27;wantPing&#x27;, function() {
+            self.connectionWantsPing(conn);
+        });
+    }(self.conn));
+
+    if (!self.opt.encoding) {
+        self.conn.setEncoding(&#x27;utf8&#x27;);
+    }
+
+    var buffer = new Buffer(&#x27;&#x27;);
+
+    function handleData(chunk) {
+        self.conn.cyclingPingTimer.notifyOfActivity();
+
+        if (typeof (chunk) === &#x27;string&#x27;) {
+            buffer += chunk;
+        } else {
+            buffer = Buffer.concat([buffer, chunk]);
+        }
+
+        var lines = self.convertEncoding(buffer).toString().split(lineDelimiter);
+
+        if (lines.pop()) {
+            // if buffer is not ended with \r\n, there&#x27;s more chunks.
+            return;
+        } else {
+            // else, initialize the buffer.
+            buffer = new Buffer(&#x27;&#x27;);
+        }
+
+        lines.forEach(function iterator(line) {
+            if (line.length) {
+                var message = parseMessage(line, self.opt.stripColors);
+
+                try {
+                    self.emit(&#x27;raw&#x27;, message);
+                } catch (err) {
+                    if (!self.conn.requestedDisconnect) {
+                        throw err;
+                    } ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.connectionTimedOut" id="apidoc.element.irc.Client.prototype.connectionTimedOut">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>connectionTimedOut
+        <span class="apidocSignatureSpan">(conn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connectionTimedOut = function (conn) {
+    var self = this;
+    if (conn !== self.conn) {
+        // Only care about a timeout event if it came from the connection
+        // that is most current.
+        return;
+    }
+    self.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.connectionWantsPing" id="apidoc.element.irc.Client.prototype.connectionWantsPing">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>connectionWantsPing
+        <span class="apidocSignatureSpan">(conn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connectionWantsPing = function (conn) {
+    var self = this;
+    if (conn !== self.conn) {
+        // Only care about a wantPing event if it came from the connection
+        // that is most current.
+        return;
+    }
+    self.send(&#x27;PING&#x27;, (pingCounter++).toString());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.convertEncoding" id="apidoc.element.irc.Client.prototype.convertEncoding">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>convertEncoding
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">convertEncoding = function (str) {
+    var self = this, out = str;
+
+    if (self.opt.encoding) {
+        try {
+            var charsetDetector = require(&#x27;node-icu-charset-detector&#x27;);
+            var Iconv = require(&#x27;iconv&#x27;).Iconv;
+            var charset = charsetDetector.detectCharset(str);
+            var converter = new Iconv(charset.toString(), self.opt.encoding);
+
+            out = converter.convert(str);
+        } catch (err) {
+            if (self.opt.debug) {
+                util.log(&#x27;\u001b[01;31mERROR: &#x27; + err + &#x27;\u001b[0m&#x27;);
+                util.inspect({ str: str, charset: charset });
+            }
+        }
+    }
+
+    return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.ctcp" id="apidoc.element.irc.Client.prototype.ctcp">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>ctcp
+        <span class="apidocSignatureSpan">(to, type, text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ctcp = function (to, type, text) {
+    return this[type === &#x27;privmsg&#x27; ? &#x27;say&#x27; : &#x27;notice&#x27;](to, &#x27;\u0001&#x27; + text + &#x27;\u0001&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.disconnect" id="apidoc.element.irc.Client.prototype.disconnect">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>disconnect
+        <span class="apidocSignatureSpan">(message, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">disconnect = function (message, callback) {
+    if (typeof (message) === &#x27;function&#x27;) {
+        callback = message;
+        message = undefined;
+    }
+    message = message || &#x27;node-irc says goodbye&#x27;;
+    var self = this;
+    if (self.conn.readyState == &#x27;open&#x27;) {
+        var sendFunction;
+        if (self.opt.floodProtection) {
+            sendFunction = self._sendImmediate;
+            self._clearCmdQueue();
+        } else {
+            sendFunction = self.send;
+        }
+        sendFunction.call(self, &#x27;QUIT&#x27;, message);
+    }
+    self.conn.requestedDisconnect = true;
+    if (typeof (callback) === &#x27;function&#x27;) {
+        self.conn.once(&#x27;end&#x27;, callback);
+    }
+    self.conn.end();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+repl.context.repl = repl;
+repl.context.util = util;
+repl.context.irc = irc;
+repl.context.c = c;
+
+repl.inputStream.addListener(&#x27;close&#x27;, function() {
+    console.log(&#x22;\nClosing session&#x22;);
+    c.<span class="apidocCodeKeywordSpan">disconnect</span>(&#x27;Closing session&#x27;);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.end" id="apidoc.element.irc.Client.prototype.end">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>end
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function () {
+    if (this.conn) {
+        this.conn.cyclingPingTimer.stop();
+        this.conn.destroy();
+    }
+    this.conn = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.join" id="apidoc.element.irc.Client.prototype.join">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>join
+        <span class="apidocSignatureSpan">(channel, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">join = function (channel, callback) {
+    var channelName =  channel.split(&#x27; &#x27;)[0];
+    this.once(&#x27;join&#x27; + channelName, function() {
+        // if join is successful, add this channel to opts.channels
+        // so that it will be re-joined upon reconnect (as channels
+        // specified in options are)
+        if (this.opt.channels.indexOf(channel) == -1) {
+            this.opt.channels.push(channel);
+        }
+
+        if (typeof (callback) == &#x27;function&#x27;) {
+            return callback.apply(this, arguments);
+        }
+    });
+    this.send.apply(this, [&#x27;JOIN&#x27;].concat(channel.split(&#x27; &#x27;)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    console.log(from + &#x27; =&#x3e; #yourchannel: &#x27; + message);
+});
+```
+
+At the moment there are functions for joining:
+
+```js
+client.<span class="apidocCodeKeywordSpan">join</span>(&#x27;#yourchannel yourpass&#x27;);
+```
+
+parting:
+
+```js
+client.part(&#x27;#yourchannel&#x27;);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.list" id="apidoc.element.irc.Client.prototype.list">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>list
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function () {
+    var args = Array.prototype.slice.call(arguments, 0);
+    args.unshift(&#x27;LIST&#x27;);
+    this.send.apply(this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.notice" id="apidoc.element.irc.Client.prototype.notice">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>notice
+        <span class="apidocSignatureSpan">(target, text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">notice = function (target, text) {
+    this._speak(&#x27;NOTICE&#x27;, target, text);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.part" id="apidoc.element.irc.Client.prototype.part">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>part
+        <span class="apidocSignatureSpan">(channel, message, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">part = function (channel, message, callback) {
+    if (typeof (message) === &#x27;function&#x27;) {
+        callback = message;
+        message = undefined;
+    }
+    if (typeof (callback) == &#x27;function&#x27;) {
+        this.once(&#x27;part&#x27; + channel, callback);
+    }
+
+    // remove this channel from this.opt.channels so we won&#x27;t rejoin
+    // upon reconnect
+    if (this.opt.channels.indexOf(channel) != -1) {
+        this.opt.channels.splice(this.opt.channels.indexOf(channel), 1);
+    }
+
+    if (message) {
+        this.send(&#x27;PART&#x27;, channel, message);
+    } else {
+        this.send(&#x27;PART&#x27;, channel);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+client.join(&#x27;#yourchannel yourpass&#x27;);
+```
+
+parting:
+
+```js
+client.<span class="apidocCodeKeywordSpan">part</span>(&#x27;#yourchannel&#x27;);
+```
+
+talking:
+
+```js
+client.say(&#x27;#yourchannel&#x27;, &#x22;I&#x27;m a bot!&#x22;);
+client.say(&#x27;nonbeliever&#x27;, &#x22;SRSLY, I AM!&#x22;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.say" id="apidoc.element.irc.Client.prototype.say">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>say
+        <span class="apidocSignatureSpan">(target, text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">say = function (target, text) {
+    this._speak(&#x27;PRIVMSG&#x27;, target, text);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+client.part(&#x27;#yourchannel&#x27;);
+```
+
+talking:
+
+```js
+client.<span class="apidocCodeKeywordSpan">say</span>(&#x27;#yourchannel&#x27;, &#x22;I&#x27;m a bot!&#x22;);
+client.say(&#x27;nonbeliever&#x27;, &#x22;SRSLY, I AM!&#x22;);
+```
+
+and many others. Check out the API documentation for a complete reference.
+
+For any commands that there aren&#x27;t methods for you can use the send() method
+which sends raw messages to the server:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.send" id="apidoc.element.irc.Client.prototype.send">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>send
+        <span class="apidocSignatureSpan">(command)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">send = function (command) {
+    var args = Array.prototype.slice.call(arguments);
+
+    // Note that the command arg is included in the args array as the first element
+
+    if (args[args.length - 1].match(/\s/) || args[args.length - 1].match(/^:/) || args[args.length - 1] === &#x27;&#x27;) {
+        args[args.length - 1] = &#x27;:&#x27; + args[args.length - 1];
+    }
+
+    if (this.opt.debug)
+        util.log(&#x27;SEND: &#x27; + args.join(&#x27; &#x27;));
+
+    if (!this.conn.requestedDisconnect) {
+        this.conn.write(args.join(&#x27; &#x27;) + &#x27;\r\n&#x27;);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+and many others. Check out the API documentation for a complete reference.
+
+For any commands that there aren&#x27;t methods for you can use the send() method
+which sends raw messages to the server:
+
+```js
+client.<span class="apidocCodeKeywordSpan">send</span>(&#x27;MODE&#x27;, &#x27;#yourchannel&#x27;, &#x27;+o&#x27;, &#x27;yournick
+&#x27;);
+```
+
+## Help! - it keeps crashing!
+
+When the client receives errors from the IRC network, it emits an &#x22;error&#x22;
+event. As stated in the [Node JS EventEmitter documentation](http://nodejs.org/api/events.html#events_class_events_eventemitter)
+if you don&#x27;t bind
+something to this error, it will cause a fatal stack trace.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.Client.prototype.whois" id="apidoc.element.irc.Client.prototype.whois">
+        function <span class="apidocSignatureSpan">irc.Client.prototype.</span>whois
+        <span class="apidocSignatureSpan">(nick, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">whois = function (nick, callback) {
+    if (typeof callback === &#x27;function&#x27;) {
+        var callbackWrapper = function(info) {
+            if (info.nick.toLowerCase() == nick.toLowerCase()) {
+                this.removeListener(&#x27;whois&#x27;, callbackWrapper);
+                return callback.apply(this, arguments);
+            }
+        };
+        this.addListener(&#x27;whois&#x27;, callbackWrapper);
+    }
+    this.send(&#x27;WHOIS&#x27;, nick);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.irc.colors" id="apidoc.module.irc.colors">module irc.colors</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.irc.colors.wrap" id="apidoc.element.irc.colors.wrap">
+        function <span class="apidocSignatureSpan">irc.colors.</span>wrap
+        <span class="apidocSignatureSpan">(color, text, resetColor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrap(color, text, resetColor) {
+    if (codes[color]) {
+        text = codes[color] + text;
+        text += (codes[resetColor]) ? codes[resetColor] : codes.reset;
+    }
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.irc.cycling_ping_timer" id="apidoc.module.irc.cycling_ping_timer">module irc.cycling_ping_timer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.irc.cycling_ping_timer.cycling_ping_timer" id="apidoc.element.irc.cycling_ping_timer.cycling_ping_timer">
+        function <span class="apidocSignatureSpan">irc.</span>cycling_ping_timer
+        <span class="apidocSignatureSpan">(client)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CyclingPingTimer(client) {
+    var timerNumber = ctr++;
+    var started = false;
+    var self = this;
+
+    // Only one of these two should be non-null at any given time.
+    var loopingTimeout = null;
+    var pingWaitTimeout = null;
+
+    // conditionally log debug messages
+    function debug(msg) {
+        if (client.opt.debug) {
+            console.error(&#x27;CyclingPingTimer &#x27; + timerNumber + &#x27;: &#x27; + msg);
+        }
+    }
+
+    // set up EventEmitter functionality
+    EventEmitter.call(self);
+
+    self.on(&#x27;wantPing&#x27;, function() {
+        debug(&#x27;server silent for too long, let\&#x27;s send a PING&#x27;);
+        pingWaitTimeout = setTimeout(function() {
+            self.stop();
+            debug(&#x27;ping timeout!&#x27;);
+            self.emit(&#x27;pingTimeout&#x27;);
+        }, client.opt.millisecondsBeforePingTimeout);
+    });
+
+    self.notifyOfActivity = function() {
+        if (started) {
+            self.stop();
+            self.start();
+        }
+    };
+
+    self.stop = function() {
+        if (!started) {
+            return;
+        }
+        started = false;
+
+        clearTimeout(loopingTimeout);
+        clearTimeout(pingWaitTimeout);
+
+        loopingTimeout = null;
+        pingWaitTimeout = null;
+    };
+
+    self.start = function() {
+        if (started) {
+            debug(&#x27;can\&#x27;t start, not stopped!&#x27;);
+            return;
+        }
+        started = true;
+
+        loopingTimeout = setTimeout(function() {
+            loopingTimeout = null;
+            self.emit(&#x27;wantPing&#x27;);
+        }, client.opt.millisecondsOfSilenceBeforePingSent);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.irc.cycling_ping_timer.super_" id="apidoc.element.irc.cycling_ping_timer.super_">
+        function <span class="apidocSignatureSpan">irc.cycling_ping_timer.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
